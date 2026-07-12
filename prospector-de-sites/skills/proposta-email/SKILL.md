@@ -31,8 +31,8 @@ Revise o e-mail pronto contra CADA item; se falhar em qualquer um, reescreva ant
 
 - [ ] **1 link só** (a página-capa). Dois links no máximo se incluir o site antigo — nunca mais que isso.
 - [ ] **Sem encurtador de URL** (bit.ly e afins = spam na certa). O link é o domínio real, com `https://`.
-- [ ] **Link como âncora HTML com texto visível limpo.** O Gmail embrulha TODO link em um redirect próprio (`google.com/url?q=...`) ao salvar — não dá pra impedir, e em corpo de texto puro o embrulho fica VISÍVEL, o que parece golpe. Por isso o rascunho é criado com corpo HTML e o link como âncora: `<a href="https://[dominio]/[pastaBase]/[slug]/proposta.html">https://[dominio]/[pastaBase]/[slug]/proposta.html</a>` — texto visível = a URL limpa montada a partir do config (nunca copiada de outro e-mail). O redirect do Google fica só no href invisível, como em qualquer e-mail do Gmail. Depois de criar, confira o rascunho: o texto visível deve começar em `https://[dominio do config]`.
-- [ ] **Domínio limpo e humano.** Se o domínio do config for um subdomínio técnico/temporário (cheio de números, tipo `nome1783367206076.1711244.meusitehostgator.com.br`), PARE antes de enviar qualquer proposta: link assim parece golpe e mata a confiança que a capa constrói. Oriente o usuário a ativar o domínio próprio (grátis no plano da HostGator: cPanel → Domains, ou registro em registro.br) e atualizar o campo `dominio` nas Configurações do dashboard. Proposta só sai com domínio apresentável.
+- [ ] **Link como âncora HTML com texto visível limpo.** O Gmail embrulha TODO link em um redirect próprio (`google.com/url?q=...`) ao salvar — não dá pra impedir, e em corpo de texto puro o embrulho fica VISÍVEL, o que parece golpe. Por isso o rascunho é criado com corpo HTML e o link como âncora: `<a href="https://[urlBase]/[slug]/proposta.html">https://[urlBase]/[slug]/proposta.html</a>` — texto visível = a URL limpa montada a partir do config (nunca copiada de outro e-mail). O redirect do Google fica só no href invisível, como em qualquer e-mail do Gmail. Depois de criar, confira o rascunho: o texto visível deve começar em `https://[urlBase do config]`.
+- [ ] **Domínio limpo e humano.** `[projeto].pages.dev` é apresentável (curto, HTTPS, sem números aleatórios) desde que o nome do projeto seja limpo — `prospector.pages.dev` passa; `site-x9k2j1.pages.dev` não. Se o nome do projeto parecer técnico/aleatório, oriente a renomear o projeto ou conectar um domínio próprio (registro.br → Cloudflare Pages → Custom domains) e atualizar o campo `dominio` nas Configurações do dashboard. Proposta só sai com URL apresentável.
 - [ ] **Sem palavras-gatilho**: grátis, promoção, imperdível, oferta, desconto, clique aqui, 100%, garantido, urgente.
 - [ ] **Sem CAIXA ALTA no assunto, sem "!!", sem emoji** no assunto.
 - [ ] **Texto simples** — corpo HTML minimalista (só parágrafos e a âncora do link; zero cores, botões, imagens ou anexos) (anexo de desconhecido aumenta score de spam E medo de abrir; a capa no link substitui o preview).
@@ -53,3 +53,9 @@ O link do e-mail leva à página-capa gerada no `/publicar` (template em `refere
 ## Depois do envio
 
 Registrar no banco/`leads.md` (status + data) e no dashboard. As respostas são verificadas pelo comando `/respostas` (Gmail via conector) — sugira ao usuário agendar a verificação diária. Follow-up pelo `/followup` após 3+ dias úteis sem resposta (1 único follow-up por lead: curto, gentil, "conseguiu ver a página?").
+
+## Respeito ao destinatário (LGPD e reputação)
+
+- O contato usa dado publicado pelo próprio negócio para fins comerciais (e-mail público no site) — mantenha SEMPRE esse lastro: nunca usar e-mail obtido de lista comprada ou raspagem de dado não público.
+- Se o lead responder qualquer variação de "não tenho interesse" ou "não me contate": marque `descartado` no banco com a data em `obs` e NUNCA mais o contate (nem follow-up, nem WhatsApp). O `/followup` deve conferir isso antes de gerar qualquer rascunho.
+- Volume humano: poucos envios por dia, 1 a 1 — além de reputação de remetente, é o que diferencia prospecção pessoal de spam.
