@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.19.0 — 2026-07-13
+
+### Codex: e-mail e Maps via @Chrome e @Computer Use
+
+- `AGENTS-modelo.md` agora roteia por capacidade da sessão: com a extensão **Codex for Chrome** (`@Chrome`), prospecção segue a `prospeccao-maps` original no Google Maps real e o e-mail segue a seção "Envio" da `proposta-email` no webmail logado (Gmail/iCloud), com conferência do campo "De"; no Mac, **@Computer Use** vira alternativa para rascunhos no Apple Mail (sincronizados com o iCloud); sem nenhum dos dois, valem os fallbacks anteriores (`prospeccao-web` + `emails-prontos/`).
+- Rascunho continua sendo o modo padrão em todos os níveis; envio direto exige config + confirmação na sessão. Proibição explícita de digitar senha/código do usuário.
+- `prospeccao-web` orienta preferir a `prospeccao-maps` quando `@Chrome` existir.
+
 ## 0.18.0 — 2026-07-13
 
 ### Prospecção no Codex por pesquisa assistida

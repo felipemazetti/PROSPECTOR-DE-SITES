@@ -15,10 +15,16 @@ Ciclo de prospecção e venda de sites: **achou → refez → publicou → ofert
 
 ## Diferenças em relação ao Claude (adaptações obrigatórias)
 
-As skills citam ferramentas do Claude que NÃO existem aqui. Substituições:
+As skills citam ferramentas do Claude que têm equivalentes diferentes aqui. Antes de tudo, detecte o que está disponível NESTA sessão: a extensão **Codex for Chrome** (`@Chrome` — opera no Chrome real do usuário, com as sessões logadas) e o **Computer Use** (`@Computer Use` — controla apps nativos no macOS/Windows) existem no app do Codex quando o usuário os habilitou nas configurações; no Codex CLI puro, não. Adapte conforme a tabela:
 
-1. **"Claude in Chrome" (navegação)** → não disponível. Para a prospecção (`$prospectar`), use a skill **`prospeccao-web`** (variante Codex): pesquisa assistida via busca web e fontes públicas, com os mesmos filtros de qualificação da `prospeccao-maps` — ela substitui a automação do Maps. Respeite captchas e rate limits (pare a fonte, não contorne). Nunca finja dados de leads: se não conseguir verificar nota/avaliações/site em fonte pública, o lead não qualifica.
-2. **Conector do Gmail** → não disponível. Para `$proposta`/`$followup`/`$contrato`: gere o e-mail pronto (assunto + corpo, já validado na checklist anti-spam da skill `proposta-email`) e grave em `emails-prontos/[slug].md` para o usuário copiar/colar no Gmail ou iCloud Mail; se houver um MCP de e-mail configurado no Codex, use-o. Para `$respostas`: peça ao usuário para colar as respostas recebidas, ou use o MCP de e-mail se existir.
+1. **"Claude in Chrome" (navegação)** →
+   - **Com `@Chrome` disponível**: use-o como equivalente direto — a prospecção pode seguir a skill `prospeccao-maps` original (navegar no Google Maps), e as verificações de site idem. Respeite captcha/login: pare e avise, nunca contorne.
+   - **Sem `@Chrome`** (CLI): use a skill **`prospeccao-web`** — pesquisa assistida via busca web e fontes públicas, mesmos filtros de qualificação. Nunca finja dados de leads: dado não verificado em fonte pública desqualifica o lead.
+2. **Conector do Gmail / iCloud via navegador** → e-mail em 3 níveis, do melhor para o fallback:
+   - **`@Chrome`**: siga a seção "Envio" da skill `proposta-email` no webmail logado do usuário (Gmail web ou icloud.com/mail) — criar o rascunho com destinatário, assunto e corpo, conferindo o campo "De" (endereço do `envio.endereco` do config). Para `$respostas`, use a busca do webmail. NUNCA digite senha/código do usuário; se pedir login, o usuário faz.
+   - **`@Computer Use` (Mac)**: alternativa nativa — criar o rascunho no **Apple Mail** (Arquivo → Nova mensagem, escolher o remetente certo no "De", salvar como rascunho; o rascunho sincroniza com o iCloud). Para `$respostas`, buscar na caixa de entrada do Mail. Só com autorização explícita do usuário na sessão.
+   - **Nenhum dos dois** (CLI): gere o e-mail pronto e validado na checklist anti-spam em `emails-prontos/[slug].md` para o usuário copiar/colar; para `$respostas`, peça para colar as respostas (ou use um MCP de e-mail, se configurado).
+   - Em TODOS os níveis: modo padrão é RASCUNHO (o usuário revisa e envia); envio direto só se o config disser `"modo": "direto"` e o usuário confirmar na sessão.
 3. **AskUserQuestion / formulários** → pergunte em texto simples, uma pergunta por vez.
 4. **Ferramenta de apresentação de arquivos** → liste os caminhos dos arquivos gerados.
 5. **Deploy** (`$publicar`) → funciona igual: `npx wrangler pages deploy` com as credenciais do config por variável de ambiente (skill `deploy-cloudflare`). Dashboard, redesign, comparador, editor e contrato também funcionam sem adaptação.

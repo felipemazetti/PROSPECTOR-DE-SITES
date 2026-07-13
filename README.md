@@ -36,7 +36,7 @@ bash PROSPECTOR-DE-SITES/codex/instalar-codex.sh
 
 Ele copia as 6 skills para `~/.agents/skills` e converte os 9 comandos em skills invocáveis (`$prospector-setup`, `$prospectar`, `$redesenhar`, `$publicar`, `$proposta`, `$respostas`, `$followup`, `$contrato`, `$editor`). Depois copie `codex/AGENTS-modelo.md` para a sua pasta de trabalho como `AGENTS.md` — ele adapta o fluxo ao Codex.
 
-**No Codex** (sem Claude in Chrome nem conectores): a prospecção usa a skill `prospeccao-web` — pesquisa assistida via busca web e fontes públicas, com os mesmos filtros de qualificação (e sem inventar dado não verificado); a leitura do e-mail pede participação manual (colar respostas) ou um MCP configurado, e os e-mails saem prontos em `emails-prontos/` para copiar e colar. Redesign, deploy no Cloudflare, dashboard e contratos funcionam integralmente.
+**No Codex**: com a extensão **Codex for Chrome** (`@Chrome`) habilitada no app do Codex, o ciclo fica quase completo — prospecção no Google Maps real e e-mail no seu webmail logado (Gmail ou icloud.com/mail), como no Claude. No Mac, o **Computer Use** (`@Computer Use`) é alternativa para rascunhos direto no Apple Mail. Sem essas ferramentas (Codex CLI puro): a prospecção usa a skill `prospeccao-web` (pesquisa assistida via busca web, sem inventar dado não verificado) e os e-mails saem prontos em `emails-prontos/` para copiar e colar. Redesign, deploy no Cloudflare, dashboard e contratos funcionam integralmente em qualquer modo.
 
 ## Requisitos
 

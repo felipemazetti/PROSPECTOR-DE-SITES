@@ -5,7 +5,9 @@ description: Variante para Codex da prospecção de clientes — encontra negóc
 
 # Prospecção por pesquisa assistida na web (Codex)
 
-Mesmo objetivo da skill `prospeccao-maps` do plugin: encontrar o cliente ouro — negócio que JÁ fatura bem (nota alta, muitas avaliações) mas perde clientes por causa de um site fraco. O que muda é o MÉTODO: aqui não há automação do Google Maps; a descoberta é por **pesquisa assistida** com as ferramentas de busca/navegação disponíveis no Codex.
+Mesmo objetivo da skill `prospeccao-maps` do plugin: encontrar o cliente ouro — negócio que JÁ fatura bem (nota alta, muitas avaliações) mas perde clientes por causa de um site fraco. O que muda é o MÉTODO: a descoberta é por **pesquisa assistida** com as ferramentas de busca/navegação disponíveis no Codex.
+
+**Antes de usar esta skill**: se a sessão tiver a extensão **Codex for Chrome** (`@Chrome`), prefira seguir a skill `prospeccao-maps` original navegando no Google Maps de verdade — esta skill é o caminho para quando só há busca web.
 
 ## Método (pesquisa assistida, não scraping)
 
