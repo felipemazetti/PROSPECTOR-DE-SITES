@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.18.0 — 2026-07-13
+
+### Prospecção no Codex por pesquisa assistida
+
+- Nova skill `prospeccao-web` (instalada pelo `codex/instalar-codex.sh`): variante da `prospeccao-maps` para o Codex, inspirada na metodologia do local-client-prospector-skill — descoberta por busca web + fontes públicas + verificação cruzada, em vez de automação do Google Maps. Mantém os filtros do plugin (nota ≥ 4.7, ≥ 40 avaliações, site ativo porém ruim, e-mail obrigatório), com regras de conformidade (sem scraping em massa, respeitar captcha/rate limits, zero dado inventado — campo não verificado desqualifica) e saída em CSV local + leads.md + dashboard.
+- `AGENTS-modelo.md` e README atualizados para apontar a variante.
+
 ## 0.17.0 — 2026-07-13
 
 ### Suporte ao OpenAI Codex

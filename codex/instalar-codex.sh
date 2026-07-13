@@ -19,6 +19,15 @@ for skill in "$PLUGIN"/skills/*/; do
   echo "  ✓ skill $nome"
 done
 
+# 1b. Skills específicas do Codex (variantes adaptadas)
+for skill in "$REPO"/codex/skills/*/; do
+  [ -d "$skill" ] || continue
+  nome="$(basename "$skill")"
+  rm -rf "$DESTINO/$nome"
+  cp -R "$skill" "$DESTINO/$nome"
+  echo "  ✓ skill $nome (variante Codex)"
+done
+
 # 2. Comandos → skills executáveis (frontmatter name/description + corpo adaptado)
 for cmd in "$PLUGIN"/commands/*.md; do
   base="$(basename "$cmd" .md)"

@@ -17,7 +17,7 @@ Ciclo de prospecção e venda de sites: **achou → refez → publicou → ofert
 
 As skills citam ferramentas do Claude que NÃO existem aqui. Substituições:
 
-1. **"Claude in Chrome" (navegação)** → não disponível. Para a prospecção no Google Maps (`$prospectar`), prefira: pedir ao usuário que exporte/cole os dados dos estabelecimentos, ou usar um script Playwright local se o ambiente permitir navegador — e PARE e avise se o Google pedir captcha/login. Nunca finja dados de leads: se não conseguir verificar nota/avaliações/site, não inclua o lead.
+1. **"Claude in Chrome" (navegação)** → não disponível. Para a prospecção (`$prospectar`), use a skill **`prospeccao-web`** (variante Codex): pesquisa assistida via busca web e fontes públicas, com os mesmos filtros de qualificação da `prospeccao-maps` — ela substitui a automação do Maps. Respeite captchas e rate limits (pare a fonte, não contorne). Nunca finja dados de leads: se não conseguir verificar nota/avaliações/site em fonte pública, o lead não qualifica.
 2. **Conector do Gmail** → não disponível. Para `$proposta`/`$followup`/`$contrato`: gere o e-mail pronto (assunto + corpo, já validado na checklist anti-spam da skill `proposta-email`) e grave em `emails-prontos/[slug].md` para o usuário copiar/colar no Gmail ou iCloud Mail; se houver um MCP de e-mail configurado no Codex, use-o. Para `$respostas`: peça ao usuário para colar as respostas recebidas, ou use o MCP de e-mail se existir.
 3. **AskUserQuestion / formulários** → pergunte em texto simples, uma pergunta por vez.
 4. **Ferramenta de apresentação de arquivos** → liste os caminhos dos arquivos gerados.
